@@ -6,7 +6,6 @@ var outputPath = Path.Combine(basePath, "Output");
 var videosPath = Path.Combine(outputPath, "Videos");
 var videosMetaPath = Path.Combine(outputPath, "video-meta.json");
 
-
 var appSettingsPath = Path.Combine(basePath, "config.json");
 var appSettingsFile = new FileService<AppSettings>();
 var youTubeApiKey = appSettingsFile.GetDataFromJson(appSettingsPath).YouTubeApiKey;
@@ -18,7 +17,6 @@ var videosMeta = await videoListerService.GetChannelVideosMeta(channelId);
 
 YouTubeVideoListSaverService videoSaverService = new();
 videoSaverService.CreateVideosMetaJson(videosMeta, videosMetaPath);
-
 
 var fileService = new FileService<VideoDetails>();
 var videosData = fileService.GetDataListFromJson(videosMetaPath);
